@@ -123,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 230,
                 child: Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: horizontalPadding,
+                      horizontal: horizontalPadding + 10,
                       vertical: verticalPadding,
                     ),
                     child: GridView.count(

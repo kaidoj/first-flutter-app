@@ -11,44 +11,44 @@ class _LineChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LineChart(
-          LineChartData(
-            lineBarsData: [
-              LineChartBarData(
-                isCurved: true,
-                curveSmoothness: 0,
-                color: AppColors.contentColorCyan.withOpacity(0.5),
-                gradient: const LinearGradient(
-                  colors: [AppColors.gradientStart, AppColors.gradientEnd],
-                  stops: [0, 1],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                belowBarData: BarAreaData(
-                    show: true,
-                    color: AppColors.contentColorPurple.withOpacity(0.5),
-                    gradient: const LinearGradient(
-                      colors: [AppColors.gradientStart, AppColors.gradientEnd],
-                      stops: [0, 1],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    )),
-                barWidth: 4,
-                isStrokeCapRound: true,
-                spots: data.asMap().entries.map((e) {
-                  return FlSpot(e.key.toDouble(), e.value);
-                }).toList(),
+      LineChartData(
+          lineBarsData: [
+            LineChartBarData(
+              isCurved: true,
+              curveSmoothness: 0,
+              color: AppColors.contentColorWhite,
+              gradient: const LinearGradient(
+                colors: [AppColors.gradientStart, AppColors.gradientEnd],
+                stops: [0, 1],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
-            ],
-            titlesData: FlTitlesData(
-                topTitles:
-                    const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                rightTitles:
-                    const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                leftTitles: AxisTitles(
-                    axisNameSize: 30,
-                    axisNameWidget: Align(
-                      alignment: const Alignment(0.5, 0),
-                      child: Text(
+              belowBarData: BarAreaData(
+                  show: true,
+                  color: AppColors.contentColorPurple.withOpacity(0.5),
+                  gradient: const LinearGradient(
+                    colors: [AppColors.gradientStart, AppColors.gradientEnd],
+                    stops: [0, 1],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  )),
+              barWidth: 4,
+              isStrokeCapRound: true,
+              spots: data.asMap().entries.map((e) {
+                return FlSpot(e.key.toDouble(), e.value);
+              }).toList(),
+            ),
+          ],
+          titlesData: FlTitlesData(
+              topTitles:
+                  const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+              rightTitles:
+                  const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+              leftTitles: AxisTitles(
+                  axisNameSize: 30,
+                  axisNameWidget: Align(
+                    alignment: const Alignment(0.5, 0),
+                    child: Text(
                       'Battery (%)',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -57,29 +57,32 @@ class _LineChart extends StatelessWidget {
                         fontFamily: GoogleFonts.poppins().fontFamily,
                         fontSize: 14,
                       ),
-                      ),
                     ),
-                    sideTitles: SideTitles(
-                        showTitles: true,
-                        reservedSize: 32,
-                        getTitlesWidget: leftTitleWidget)),
-                bottomTitles: AxisTitles(
-                    axisNameSize: 25,
-                    axisNameWidget: Text(
-                      'Time (Hours)',
-                      style: TextStyle(
-                        color: AppColors.contentColorWhite,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                        fontSize: 14,
-                      ),
+                  ),
+                  sideTitles: SideTitles(
+                      showTitles: true,
+                      reservedSize: 32,
+                      getTitlesWidget: leftTitleWidget)),
+              bottomTitles: AxisTitles(
+                  axisNameSize: 25,
+                  axisNameWidget: Text(
+                    'Time (Hours)',
+                    style: TextStyle(
+                      color: AppColors.contentColorWhite,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: GoogleFonts.poppins().fontFamily,
+                      fontSize: 14,
                     ),
-                    sideTitles: SideTitles(
-                        showTitles: true,
-                        reservedSize: 32,
-                        getTitlesWidget: bottomTitleWidget))),
-            borderData: FlBorderData(show: false),
-          ),
+                  ),
+                  sideTitles: SideTitles(
+                      showTitles: true,
+                      reservedSize: 32,
+                      getTitlesWidget: bottomTitleWidget))),
+          borderData: FlBorderData(show: false),
+          lineTouchData: LineTouchData(
+            touchTooltipData: LineTouchTooltipData(
+                fitInsideHorizontally: true, fitInsideVertically: true),
+          )),
     );
   }
 
@@ -167,31 +170,31 @@ class _WaveChartState extends State<WaveChart> {
     return Container(
       height: 200,
       child: const _LineChart(data: [
-            100.0,
-            96.4,
-            91.9,
-            87.5,
-            84.0,
-            80.8,
-            76.8,
-            73.3,
-            70.3,
-            66.4,
-            62.9,
-            59.1,
-            55.7,
-            52.5,
-            49.4,
-            46.4,
-            43.6,
-            41.1,
-            39.0,
-            37.1,
-            35.3,
-            33.3,
-            31.3,
-            26.8,
-            20.0
+        100.0,
+        96.4,
+        91.9,
+        87.5,
+        84.0,
+        80.8,
+        76.8,
+        73.3,
+        70.3,
+        66.4,
+        62.9,
+        59.1,
+        55.7,
+        52.5,
+        49.4,
+        46.4,
+        43.6,
+        41.1,
+        39.0,
+        37.1,
+        35.3,
+        33.3,
+        31.3,
+        26.8,
+        20.0
       ]),
     );
   }
