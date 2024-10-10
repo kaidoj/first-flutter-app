@@ -67,7 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         backgroundColor: AppColors.contentColorBlack,
         body: SafeArea(
-            child: Column(
+            child: SingleChildScrollView(
+                child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
@@ -119,14 +120,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: const ChartTabs(),
               ),
             ),
-            Container(
-                height: 230,
-                child: Padding(
+            Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: horizontalPadding + 10,
                       vertical: verticalPadding,
                     ),
                     child: GridView.count(
+                      shrinkWrap: true,
                       childAspectRatio: 2,
                       crossAxisCount: 2, // 2 columns
                       crossAxisSpacing: 10.0,
@@ -149,37 +149,37 @@ class _MyHomePageState extends State<MyHomePage> {
                             value: '212 m',
                             icon: 'lib/icons/altitude.png'),
                       ],
-                    ))),
+                    )),
             // footer button
             Align(
-              alignment: Alignment.center,
-              child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: verticalPadding + 20,
-                  ),
-                  child: OutlinedButton(
-                    style: ButtonStyle(
-                      shape: WidgetStateProperty.all<OutlinedBorder>(
-                          StadiumBorder()),
-                      side: WidgetStateProperty.resolveWith<BorderSide>(
-                          (Set<WidgetState> states) {
-                        final Color color = states.contains(WidgetState.pressed)
-                            ? AppColors.contentColorDarkGray
-                            : AppColors.contentColorLightGray;
-                        return BorderSide(color: color, width: 2);
-                      }),
+                alignment: Alignment.center,
+                child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: verticalPadding + 20,
                     ),
-                    onPressed: () {},
-                    child: Text('Fly Again',
-                        style: TextStyle(
-                          color: AppColors.contentColorWhite,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: GoogleFonts.poppins().fontFamily,
-                        )),
-                  ))
-            ),
+                    child: OutlinedButton(
+                      style: ButtonStyle(
+                        shape: WidgetStateProperty.all<OutlinedBorder>(
+                            StadiumBorder()),
+                        side: WidgetStateProperty.resolveWith<BorderSide>(
+                            (Set<WidgetState> states) {
+                          final Color color =
+                              states.contains(WidgetState.pressed)
+                                  ? AppColors.contentColorDarkGray
+                                  : AppColors.contentColorLightGray;
+                          return BorderSide(color: color, width: 2);
+                        }),
+                      ),
+                      onPressed: () {},
+                      child: Text('Fly Again',
+                          style: TextStyle(
+                            color: AppColors.contentColorWhite,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: GoogleFonts.poppins().fontFamily,
+                          )),
+                    ))),
           ],
-        )));
+        ))));
   }
 }
