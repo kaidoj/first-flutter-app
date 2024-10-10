@@ -1,6 +1,6 @@
-import 'package:first_app/charts/wave_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/resources/app_colors.dart';
+import 'package:first_app/tabs/chart_tabs.dart';
 
 void main() {
   runApp(const MyApp());
@@ -69,9 +69,11 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: horizontalPadding,
-                  vertical: verticalPadding,
+                padding: EdgeInsets.only(
+                  right: horizontalPadding + 10,
+                  left: horizontalPadding,
+                  top: verticalPadding,
+                  bottom: verticalPadding,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,22 +88,35 @@ class _MyHomePageState extends State<MyHomePage> {
                         radius: 20,
                         backgroundColor: AppColors.contentColorWhite,
                         child: Align(
-                          alignment: Alignment.center,
-                          child: Image.asset(
-                          'lib/icons/logo.png',
-                          height: 20,
-                          width: 32,
-                        )))
+                            alignment: Alignment.center,
+                            child: Image.asset(
+                              'lib/icons/logo.png',
+                              height: 20,
+                              width: 32,
+                            )))
                   ],
                 )),
+            const Padding(
+              padding: EdgeInsets.only(
+                right: 20,
+              ),
+              child: Divider(
+                height: 20,
+                thickness: 1,
+                indent: 20,
+                endIndent: 0,
+                color: AppColors.dividerColor,
+              )
+            ),
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: horizontalPadding,
-                vertical: verticalPadding + 40,
+                vertical: verticalPadding + 20,
               ),
               child: SizedBox(
-                  width: MediaQuery.sizeOf(context).width - 45,
-                  child: const WaveChart()),
+                width: MediaQuery.sizeOf(context).width,
+                child: const ChartTabs(),
+              ),
             )
           ],
         )));
