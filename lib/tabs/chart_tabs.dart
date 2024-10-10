@@ -58,7 +58,7 @@ class _ChartTabsState extends State<ChartTabs> {
               Container(
                 height: 45,
                 padding: const EdgeInsets.all(2),
-                margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
+                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 decoration: BoxDecoration(
                   color: AppColors.contentColorDarkGray, // Gray background for the tab container
                   borderRadius: BorderRadius.circular(20), // Rounded container
