@@ -1,6 +1,8 @@
+import 'package:first_app/grid/grid_item.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/resources/app_colors.dart';
 import 'package:first_app/tabs/chart_tabs.dart';
+import 'package:first_app/grid/grid_item.dart';
 
 void main() {
   runApp(const MyApp());
@@ -97,17 +99,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 )),
             const Padding(
-              padding: EdgeInsets.only(
-                right: 20,
-              ),
-              child: Divider(
-                height: 20,
-                thickness: 1,
-                indent: 20,
-                endIndent: 0,
-                color: AppColors.dividerColor,
-              )
-            ),
+                padding: EdgeInsets.only(
+                  right: 20,
+                ),
+                child: Divider(
+                  height: 20,
+                  thickness: 1,
+                  indent: 20,
+                  endIndent: 0,
+                  color: AppColors.dividerColor,
+                )),
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: horizontalPadding,
@@ -117,7 +118,26 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: MediaQuery.sizeOf(context).width,
                 child: const ChartTabs(),
               ),
-            )
+            ),
+            Container(
+              height: 300,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: horizontalPadding,
+                  vertical: verticalPadding,
+                ),
+                child: GridView.count(
+                  childAspectRatio: 2,
+                  crossAxisCount: 2, // 2 columns
+                  crossAxisSpacing: 10.0,
+                  mainAxisSpacing: 10.0,
+                  children: [
+                    GridItem(title: 'Flight Time', value: '30 min', icon: 'lib/icons/timer.png'),
+                    GridItem(title: 'Battery', value: '89%', icon: 'lib/icons/battery.png'),
+                    GridItem(title: 'Max Range', value: '300 m', icon: 'lib/icons/range.png'),
+                    GridItem(title: 'Max Altitude', value: '212 m', icon: 'lib/icons/altitude.png'),
+                  ],
+                )))
           ],
         )));
   }
